@@ -12,7 +12,7 @@ lookup = {
 }
 
 # with open('webapp-source/deploy.json') as input:
-with open('deploy.json') as input:
+with open('./deploy.json') as input:
     print('Parsing deploy.json')
     data = json.load(input)
 
