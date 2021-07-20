@@ -11,8 +11,7 @@ lookup = {
     'Any': ''
 }
 
-# with open('webapp-source/deploy.json') as input:
-with open('../deploy.json') as input:
+with open('deploy.json') as input:
     print('Parsing deploy.json')
     data = json.load(input)
 
@@ -30,7 +29,7 @@ webapp_port = data.get('port', 80)
 health_check = data.get('health_check', '/?healthz')
 
 # The following are input values of the webapp helm chart
-with open('deploy-params/overrides.yaml', 'w') as output:
+with open('overrides.yaml', 'w') as output:
     json.dump({
         'AuthProxy': {
             'AuthenticationRequired': auth_required,
@@ -41,4 +40,4 @@ with open('deploy-params/overrides.yaml', 'w') as output:
             'HealthCheck': health_check,
         }
     }, output)
-print('Wrote deploy-params/overrides.yaml')
+print('overrides.yaml')
